@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
 {
 
@@ -24,6 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
+       
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }
@@ -101,7 +103,6 @@ class PostController extends Controller
 
         $validated = $request->validate($this->validationRules);
 
-
         $post = new Post();
         $post->author = $data['author'];
         $post->title = $data['title'];
@@ -111,9 +112,9 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('admin.posts.index')->with('created', $post->title);
+        return redirect()->route('admin.posts.index', compact('post'))->with('created', $post->title);
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *

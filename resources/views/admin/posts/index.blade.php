@@ -38,7 +38,7 @@
 
                                 <td>{{ $post->post_date }}</td>
                                 <td>
-                                    <a class="btn btn-warning font-weight-bold"
+                                    <a class="btn btn-primary font-weight-bold"
                                         href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
                                 </td>
                                 <td>

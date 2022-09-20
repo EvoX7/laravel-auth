@@ -10,9 +10,8 @@
                     @csrf
                     @method('PUT')
                     @include('admin.includes.form')
-                    <div>
-                        <button type="submit" class="btn btn-warning font-weight-bold">Modify</button>
-                    </div>
+                    <a class="btn btn-primary font-weight-bold"
+                    href="{{ route('admin.posts.show', $post->id) }}">Modify</a>
                 </form>
                 
             </div>
