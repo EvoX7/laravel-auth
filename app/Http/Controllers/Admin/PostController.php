@@ -1,13 +1,22 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    // Validation Rules
+
+    protected $validationRules = [
+        'author' => 'required|min:5|max:150',
+        'title' =>  'required|min:5|max:150',
+        'post_img' => 'active_url',
+        'post_content' => 'required|min:50|max:255',
+        'post_date' => 'required||date'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +35,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $post = new Post();
+        return view('admin.posts.create', compact('post'));
     }
 
     /**
@@ -37,7 +47,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $validated = $request->validate($this->validationRules);
+
+
+        $post = new Post();
+        $post->author = $data['author'];
+        $post->title = $data['title'];
+        $post->post_img = $data['post_img'];
+        $post->post_content = $data['post_content'];
+        $post->post_date = $data['post_date'];
+
+        $post->save();
+
+        return redirect()->route('admin.posts.index')->with('created', $post->title);
     }
 
     /**
@@ -48,7 +72,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrfail($id);
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -59,7 +84,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrfail($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -71,7 +97,21 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $validated = $request->validate($this->validationRules);
+
+
+        $post = new Post();
+        $post->author = $data['author'];
+        $post->title = $data['title'];
+        $post->post_img = $data['post_img'];
+        $post->post_content = $data['post_content'];
+        $post->post_date = $data['post_date'];
+
+        $post->save();
+
+        return redirect()->route('admin.posts.index')->with('created', $post->title);
     }
 
     /**
@@ -82,6 +122,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete($id);
+
+        return redirect()->route('admin.posts.index')->with('delete', $post->title);
     }
 }

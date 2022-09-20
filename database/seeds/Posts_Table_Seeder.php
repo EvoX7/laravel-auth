@@ -17,7 +17,7 @@ class Posts_Table_Seeder extends Seeder
             $newPost->title = $faker->realText(40);
             $newPost->author = $faker->name(40);
             $newPost->post_date = $faker->dateTime();
-            $newPost->post_img = $faker->url();
+            $newPost->post_img = $faker->imageUrl();
             $newPost->post_content = $faker->paragraphs(3, true);
 
             $newPost->save();
