@@ -37,7 +37,7 @@
         <label for="post_content" class="form-label">Post Content</label>
         <textarea class="form-control" name="post_content"id="post_content" rows="6" aria-describedby="Post_contentHelp"
             required>{{ old('post_content', $post->post_content) }}</textarea>
-        <div class="text-white-50" id="Post_contentHelp" class="form-text">Please insert your post.</div>
+        <div id="Post_contentHelp" class="form-text">Please insert your post.</div>
         @error('post_content')
             <div class="alert alert-danger">
                 {{ $message }}

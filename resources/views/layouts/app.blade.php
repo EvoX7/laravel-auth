@@ -23,13 +23,13 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand font-weight-bold " href="{{ route('admin.home') }}"> Admin Panel
                 </a>
-                <a class="navbar-brand btn btn-primary text-white" href="{{ route('admin.posts.index') }}">
+                <a class="navbar-brand btn btn-info text-white" href="{{ route('admin.posts.index') }}">
                    Posts</a>
-                   <a class="navbar-brand btn btn-primary text-white" href="{{ route('admin.posts.create') }}">
+                   <a class="navbar-brand btn btn-info text-white" href="{{ route('admin.posts.create') }}">
                     Add new</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -58,7 +58,7 @@
                         @else
                         
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#"
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold text-black" href="#"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
