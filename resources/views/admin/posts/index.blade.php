@@ -7,7 +7,7 @@
             <div class="col-12">
 
                 <h1 class="mt-3 mb-5 text-center">List Post</h1>
-
+                
                 @if (session('delete'))
                     <div class="alert alert-danger">
                         "{{ session('delete') }}" - has been removed successfully.
@@ -18,14 +18,16 @@
                     </div>
                 @endif
 
+                <a class="navbar-brand btn btn-success float-right mb-2" href="{{ route('admin.posts.create') }}">
+                    New Post</a>
                 <table class="table table-info table-striped">
                     <thead>
                         <th  scope="col">Id</th>
                         <th  scope="col">Author</th>
                         <th  scope="col">Title</th>
                         <th  scope="col">Date</th>
-                        <th></th>
-                        <th></th> 
+                    
+                            
                     </thead>
                     <tbody>
 

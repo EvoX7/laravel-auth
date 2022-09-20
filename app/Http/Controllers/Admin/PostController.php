@@ -102,8 +102,9 @@ class PostController extends Controller
         $data = $request->all();
 
         $validated = $request->validate($this->validationRules);
-
-        $post = new Post();
+        
+        $post = Post::findOrfail($id);
+        
         $post->author = $data['author'];
         $post->title = $data['title'];
         $post->post_img = $data['post_img'];

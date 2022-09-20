@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header font-weight-bold">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
+                <div class="card-body font-weight-bold">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
